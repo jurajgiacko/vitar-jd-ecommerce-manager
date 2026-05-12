@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Manager · Vitar Group</title>
+    <meta name="description" content="Postavíš první D2C e-shop pro jednoho z největších českých výrobců doplňků stravy. AI-first prostředí, hybrid Zlín. Nástup 15. 6. 2026.">
+    <meta property="og:title" content="E-commerce Manager · Vitar Group">
+    <meta property="og:description" content="Postavíš první D2C e-shop Vitar.cz od nuly. AI-first prostředí. 50–70k CZK. Zlín / hybrid.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --vitar-blue: #0057A0;
+            --vitar-blue-light: #1a7fd4;
+            --vitar-blue-dark: #003d70;
+            --vitar-green: #4CAF50;
+            --vitar-orange: #FF9800;
+            --ink: #0f1729;
+            --ink-soft: #2c3e5d;
+            --gray: #64748b;
+            --gray-light: #94a3b8;
+            --bg: #ffffff;
+            --bg-soft: #f8fafc;
+            --bg-card: #ffffff;
+            --border: #e2e8f0;
+            --border-strong: #cbd5e1;
+            --shadow-sm: 0 1px 2px rgba(15, 23, 41, 0.04);
+            --shadow-md: 0 4px 12px rgba(15, 23, 41, 0.08);
+            --shadow-lg: 0 12px 32px rgba(15, 23, 41, 0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 16px;
+            line-height: 1.65;
+            color: var(--ink);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--vitar-blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* TOP BAR */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 24px;
+        }
+        .topbar-inner {
+            max-width: 880px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .brand {
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .brand-dot {
+            width: 10px; height: 10px;
+            background: var(--vitar-blue);
+            border-radius: 2px;
+        }
+        .brand-sub {
+            font-weight: 500;
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+        .topbar-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--vitar-blue);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .topbar-cta:hover {
+            background: var(--vitar-blue-dark);
+            text-decoration: none;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 80px 24px 64px;
+            background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-inner {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+        .hero-tag {
+            display: inline-block;
+            padding: 6px 12px;
+            background: rgba(0, 87, 160, 0.08);
+            color: var(--vitar-blue);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            color: var(--ink);
+            margin-bottom: 20px;
+        }
+        .hero-lead {
+            font-size: 1.15rem;
+            color: var(--ink-soft);
+            line-height: 1.6;
+            margin-bottom: 32px;
+            max-width: 680px;
+        }
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+            margin-bottom: 36px;
+            font-size: 0.95rem;
+            color: var(--ink-soft);
+        }
+        .hero-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .hero-meta-item strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+        .hero-cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 24px;
+            background: var(--vitar-blue);
+            color: white;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-md);
+        }
+        .btn-primary:hover {
+            background: var(--vitar-blue-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-lg);
+            text-decoration: none;
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 24px;
+            background: white;
+            color: var(--ink);
+            border: 1px solid var(--border-strong);
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        .btn-secondary:hover {
+            border-color: var(--vitar-blue);
+            color: var(--vitar-blue);
+            text-decoration: none;
+        }
+
+        /* CONTENT */
+        main {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 64px 24px;
+        }
+        section {
+            margin-bottom: 64px;
+        }
+        section:last-child { margin-bottom: 0; }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--vitar-blue);
+            display: inline-block;
+        }
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-top: 28px;
+            margin-bottom: 12px;
+        }
+        h3:first-child { margin-top: 0; }
+
+        p { margin-bottom: 16px; color: var(--ink-soft); }
+        p:last-child { margin-bottom: 0; }
+
+        ul, ol {
+            margin: 0 0 16px 22px;
+            color: var(--ink-soft);
+        }
+        ul li, ol li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        ul li strong, ol li strong { color: var(--ink); font-weight: 600; }
+
+        strong { color: var(--ink); font-weight: 600; }
+
+        .quote {
+            margin: 24px 0;
+            padding: 20px 24px;
+            background: var(--bg-soft);
+            border-left: 4px solid var(--vitar-blue);
+            border-radius: 0 8px 8px 0;
+            color: var(--ink);
+            font-style: italic;
+            font-size: 1.05rem;
+            line-height: 1.55;
+        }
+
+        .ai-card {
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+        .ai-card-label {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--vitar-blue);
+            color: white;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .ai-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+        .ai-card p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+
+        .timeline {
+            margin: 16px 0;
+        }
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .timeline-item:last-child { border-bottom: none; }
+        .timeline-week {
+            flex-shrink: 0;
+            width: 110px;
+            font-weight: 700;
+            color: var(--vitar-blue);
+            font-size: 0.9rem;
+        }
+        .timeline-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 4px;
+        }
+        .timeline-content p {
+            font-size: 0.95rem;
+            color: var(--ink-soft);
+            margin: 0;
+        }
+
+        .salary-box {
+            background: linear-gradient(135deg, var(--vitar-blue) 0%, var(--vitar-blue-light) 100%);
+            color: white;
+            padding: 24px 28px;
+            border-radius: 12px;
+            margin: 24px 0;
+            box-shadow: var(--shadow-md);
+        }
+        .salary-box-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            opacity: 0.85;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .salary-box-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            margin-bottom: 4px;
+        }
+        .salary-box-note {
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        .apply-box {
+            background: var(--ink);
+            color: white;
+            padding: 32px;
+            border-radius: 16px;
+            margin-top: 32px;
+        }
+        .apply-box h2 {
+            color: white;
+            border-color: var(--vitar-orange);
+            margin-bottom: 16px;
+        }
+        .apply-box p { color: #cbd5e1; }
+        .apply-box .email-block {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin: 16px 0;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-size: 0.95rem;
+        }
+        .apply-box .email-block strong { color: white; }
+        .apply-box ul { color: #cbd5e1; }
+        .apply-box ul li strong { color: white; }
+        .apply-box a { color: var(--vitar-orange); }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 24px;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.85rem;
+            background: var(--bg-soft);
+        }
+        footer a { color: var(--gray); }
+
+        @media (max-width: 640px) {
+            .hero { padding: 48px 20px 40px; }
+            main { padding: 48px 20px; }
+            .timeline-item { flex-direction: column; gap: 6px; }
+            .timeline-week { width: auto; }
+            .apply-box { padding: 24px; }
+            .salary-box-amount { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="topbar">
+    <div class="topbar-inner">
+        <div class="brand">
+            <span class="brand-dot"></span>
+            VITAR Group <span class="brand-sub">· kariéra</span>
+        </div>
+        <a href="#prihlasit" class="topbar-cta">Přihlásit se</a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-inner">
+        <span class="hero-tag">Hledáme · plný úvazek</span>
+        <h1>E-commerce Manager pro nové Vitar.cz</h1>
+        <p class="hero-lead">
+            Postavíš první D2C e-shop v 30leté historii Vitaru. Od finalizace platformy přes implementaci až po denní provoz po launchi. AI-first prostředí, přímá spolupráce s CEO a Director of Digital Growth.
+        </p>
+        <div class="hero-meta">
+            <div class="hero-meta-item">📍 <span><strong>Zlín</strong> / hybrid</span></div>
+            <div class="hero-meta-item">💼 <span><strong>HPP</strong> · plný úvazek</span></div>
+            <div class="hero-meta-item">📅 Nástup <strong>do 15. 6. 2026</strong></div>
+            <div class="hero-meta-item">💰 <strong>50–70k CZK</strong></div>
+        </div>
+        <div class="hero-cta-row">
+            <a href="#prihlasit" class="btn-primary">Přihlásit se →</a>
+            <a href="#o-roli" class="btn-secondary">Co budu dělat</a>
+        </div>
+    </div>
+</section>
+
+<main>
+
+<section>
+    <h2>O firmě</h2>
+    <p>
+        Vitar je český výrobce doplňků stravy s <strong>30letou tradicí</strong>, vlastní laboratoří a 250 zaměstnanci. Vyrábíme <strong>13 milionů kusů ročně</strong> pod značkami Vitar, MaxiVita, MaxiVita Essentials a dalšími. Držíme 10–14 % českého trhu.
+    </p>
+    <p>
+        V roce 2026 spouštíme nový e-shop <strong>Vitar.cz</strong> — první přímý prodejní kanál (D2C) v historii firmy. Hledáme člověka, který ho rozjede a povede.
+    </p>
+</section>
+
+<section id="o-roli">
+    <h2>Co budeš dělat</h2>
+
+    <h3>Před launchem (do Q3 2026)</h3>
+    <ul>
+        <li>Spolupráce na finalizaci a nasazení platformy (Shoptet Premium nebo Shopify Plus — finální rozhodnutí v Q2 2026)</li>
+        <li>Definice sortimentu pro launch — s produktovým týmem</li>
+        <li>Nastavení platebních bran, dopravců, procesů</li>
+        <li>Testování, UAT, příprava na go-live</li>
+        <li>Příprava launch readiness checklistu</li>
+    </ul>
+
+    <h3>Denní provoz e-shopu (od launche)</h3>
+    <ul>
+        <li>Řízení objednávek, expedice, customer care</li>
+        <li>Správa produktového katalogu (popisy, fotografie, ceny, akce)</li>
+        <li>Monitoring výkonnosti (konverze, AOV, návštěvnost)</li>
+        <li>Řešení reklamací a vrácení</li>
+        <li>Koordinace se skladem Zlín</li>
+    </ul>
+
+    <h3>Růst a optimalizace</h3>
+    <ul>
+        <li>A/B testování, UX zlepšení, konverzní optimalizace</li>
+        <li>Cross-sell a upsell strategie (bundly, doporučovací engine)</li>
+        <li>CRM — Vitar Klub, email marketing, retence</li>
+        <li>Reporting: týdenní/měsíční KPIs pro management</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Co od tebe očekáváme</h2>
+
+    <h3>Must-have</h3>
+    <ul>
+        <li><strong>2+ roky řízení e-shopu</strong> (B2C, ideálně FMCG / health / beauty)</li>
+        <li>Zkušenost se <strong>Shoptet</strong> NEBO <strong>Shopify</strong> (ideálně oboje)</li>
+        <li>Rozumíš celému e-com cyklu: od produktové stránky po expedici a customer care</li>
+        <li>Analytické myšlení — umíš číst data (GA4, e-shop dashboard) a dělat rozhodnutí</li>
+        <li>Samostatnost — neni třeba mikromanagement</li>
+        <li>Čeština nativně, angličtina na pracovní úrovni</li>
+    </ul>
+
+    <h3>AI-first přístup (toto je dealbreaker)</h3>
+    <p>Vitar staví digitální kanál na AI-first principech. Hledáme člověka, který:</p>
+    <ul>
+        <li><strong>Aktivně používá AI v práci</strong> — ne na přepisování textu, ale jako nástroj pro analýzu, automatizaci a rozhodování</li>
+        <li><strong>Rozumí agentní práci</strong> — umí zadat složitý úkol AI agentovi (Claude, Cursor, vlastní workflow), zkontrolovat výstup a iterovat</li>
+        <li>Má zkušenost nebo silnou ochotu učit se nástroje jako <strong>Cursor, Claude Code, AI-driven analytics</strong></li>
+        <li>Chápe, že AI = <strong>multiplikátor</strong>, ne hrozba — jeden člověk s AI nahradí tým tří lidí bez nich</li>
+    </ul>
+
+    <div class="quote">
+        Nepotřebujeme člověka, který umí „používat ChatGPT". Potřebujeme člověka, který umí delegovat práci na AI agenty a řídit jejich výstupy — stejně jako řídí lidi.
+    </div>
+
+    <h3>Nice-to-have</h3>
+    <ul>
+        <li>Zkušenost se stavbou e-shopu od nuly (ne jen správa existujícího)</li>
+        <li>CRM / email marketing nástroje (Mailchimp, Klaviyo, Ecomail)</li>
+        <li>Základní znalost SEO a PPC</li>
+        <li>ERP integrace (sklad, ceny, produktová data)</li>
+        <li>No-code / low-code nástroje (Make, Zapier, n8n)</li>
+        <li>Základní orientace v kódu (HTML, CSS) — ne jako developer, ale rozumíš tomu, co AI vygeneruje</li>
+    </ul>
+
+    <h3>Osobnost</h3>
+    <ul>
+        <li><strong>Hands-on</strong> — není to manažerská role od stolu, ale role „kapitán lodě"</li>
+        <li><strong>Orientace na výsledek</strong> — zajímá tě konverze a tržby, ne jen procesy</li>
+        <li><strong>Komunikativní</strong> — budeš spolupracovat se skladem, IT, marketingem, vedením</li>
+        <li><strong>AI-native mindset</strong> — bereš AI jako samozřejmost, ne jako experiment</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Co nabízíme</h2>
+    <ul>
+        <li>Možnost <strong>vybudovat e-shop od nuly</strong> pro jednoho z největších českých výrobců doplňků stravy</li>
+        <li>Přímou spolupráci s <strong>CEO a Director of Digital Growth</strong></li>
+        <li><strong>AI-first prostředí</strong> — Cursor, Claude Code, agentní workflows jsou standard, ne experiment. Firma investuje do AI adopce napříč celou skupinou.</li>
+        <li>Přístup k <strong>placeným AI nástrojům</strong> (Claude Pro, Cursor Pro, další dle potřeby)</li>
+        <li><strong>Hybridní model</strong> práce (Zlín + remote)</li>
+        <li>Stabilní zaměstnání v rostoucí firmě s 30letou tradicí v režimu startupu</li>
+    </ul>
+
+    <div class="salary-box">
+        <div class="salary-box-label">Hrubá měsíční mzda</div>
+        <div class="salary-box-amount">50 000 – 70 000 CZK</div>
+        <div class="salary-box-note">+ benefity, dle zkušenosti</div>
+    </div>
+</section>
+
+<section>
+    <h2>First 90 days — co budeš dělat</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-week">Týden 1–2</div>
+            <div class="timeline-content">
+                <h4>Onboarding + audit</h4>
+                <p>Seznámení s týmem, deep dive do aktuálního stavu, audit. Output: 3stránkový audit + 5 quick wins na první měsíc.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-week">Týden 3–4</div>
+            <div class="timeline-content">
+                <h4>Vendor + sortiment</h4>
+                <p>Finalizace volby implementačního partnera. Definice launch sortimentu (~80 SKU). Pricing + promo framework.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-week">Měsíc 2</div>
+            <div class="timeline-content">
+                <h4>Implementace</h4>
+                <p>Spustit implementaci e-shopu, platební brány, dopravce, ERP integrace. Content pipeline s CMO.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-week">Měsíc 3</div>
+            <div class="timeline-content">
+                <h4>Soft launch readiness (do 15. 7.)</h4>
+                <p>UAT, content readiness, customer care procesy. Soft launch pilotním 50–100 zákazníkům. Output: pilot report + go/no-go doporučení.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Výběrový proces</h2>
+    <p><strong>3 kola, ~3 týdny od přihlášení do nabídky:</strong></p>
+    <ol>
+        <li><strong>CV screening + intro hovor</strong> (30 min, video) — projdeme si tvé zkušenosti, odpovíme na otázky o roli a firmě.</li>
+        <li><strong>AI-first úloha</strong> (2–3 h tvé práce, na doma) — viz níže. Cílem není perfektní výstup, ale <strong>jak přemýšlíš</strong> a jak používáš AI nástroje.</li>
+        <li><strong>Final interview</strong> (90 min, Zlín nebo video) — diskuze nad výstupem z úlohy + meeting s Director of Digital Growth a CMO.</li>
+    </ol>
+
+    <h3>AI-first úloha (2–3 h)</h3>
+    <p>Vyber si <strong>jeden</strong> z těchto tří problémů, které reálně řešíme na Vitar.cz:</p>
+
+    <div class="ai-card">
+        <span class="ai-card-label">Volba A</span>
+        <h4>Produktové popisy at scale</h4>
+        <p>Vitar uvede na e-shop ~80 SKU pro launch. Navrhni AI-driven workflow, kterým jeden člověk vygeneruje, zvaliduje a nasadí všechny popisy (titulek, perex, dlouhý popis, FAQ, SEO meta) za max 5 pracovních dnů. Zachovej brand tone Vitar (premium, vědecky podložený, ne agresivní).</p>
+    </div>
+
+    <div class="ai-card">
+        <span class="ai-card-label">Volba B</span>
+        <h4>Customer care first-line</h4>
+        <p>Navrhni AI workflow, který zvládne first-line customer care (status objednávky, otázky o produktech, reklamace, vrácení) a eskaluje pouze 20–30 % dotazů na člověka. Co budeš používat (Intercom AI? Custom GPT? Vlastní agent?), jak to natrenuješ na Vitar produkty, jak řešíš případy kde se AI může splést.</p>
+    </div>
+
+    <div class="ai-card">
+        <span class="ai-card-label">Volba C</span>
+        <h4>Cross-sell engine na PDP</h4>
+        <p>Navrhni jak na produktové stránce (PDP) nabídnout zákazníkovi 2–3 relevantní produkty (cross-sell + upsell) bez nákupu drahého recommendation enginu. Použij AI a/nebo pravidlový systém. Cílem je zvýšit AOV o 15 %.</p>
+    </div>
+
+    <h3>Formát výstupu (max 2 strany A4)</h3>
+    <ul>
+        <li>Jaký problém řešíš a proč je důležitý (3–5 vět)</li>
+        <li>Tvůj návrh: nástroje, prompty/workflow, integrace, validace</li>
+        <li>KPIs: jak měříš úspěch</li>
+        <li>Risks + mitigace</li>
+        <li>Timeline na implementaci (1. týden / 1. měsíc / Q1)</li>
+    </ul>
+
+    <div class="quote">
+        💡 Tip: Použij AI nástroje při práci na úloze. <strong>Očekáváme to.</strong> Klidně nám ukaž, jaký workflow a prompty jsi použil ke stavbě řešení.
+    </div>
+</section>
+
+<section id="prihlasit">
+    <div class="apply-box">
+        <h2>Jak se přihlásit</h2>
+        <p>Pošli email na:</p>
+        <div class="email-block">
+            <strong>giacko.juraj@vitar.cz</strong><br>
+            Předmět: <strong>JD: E-com Manager Vitar — [Tvé jméno]</strong>
+        </div>
+        <p>Obsah emailu:</p>
+        <ul>
+            <li><strong>CV</strong> (PDF)</li>
+            <li><strong>3–5 vět, proč tě role zaujala</strong> — chceme vědět <strong>co jsi udělal/a</strong>, ne motivační dopis</li>
+            <li><strong>LinkedIn profil</strong></li>
+            <li>Volitelně: 2–3 reference / projekty, na které jsi hrdý/á</li>
+        </ul>
+        <p style="margin-top: 20px;"><strong>Nástup:</strong> ASAP, ideálně do 15. 6. 2026 (měsíc před soft launchem 15. 7.).</p>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>Vitar Group · Zlín · 2026 &nbsp;·&nbsp; <a href="mailto:giacko.juraj@vitar.cz">giacko.juraj@vitar.cz</a></p>
+</footer>
+
+</body>
+</html>
