@@ -339,6 +339,65 @@
             opacity: 0.85;
         }
 
+        .ai-stack-box {
+            background: linear-gradient(135deg, var(--vitar-blue) 0%, var(--vitar-blue-light) 100%);
+            color: white;
+            padding: 28px 28px 24px;
+            border-radius: 14px;
+            margin: 28px 0 0;
+            box-shadow: var(--shadow-md);
+        }
+        .ai-stack-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: rgba(255,255,255,0.18);
+            padding: 5px 11px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+        }
+        .ai-stack-headline {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        .ai-stack-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .ai-stack-tool {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+        .ai-stack-tool-name {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        .ai-stack-tool-desc {
+            font-size: 0.85rem;
+            opacity: 0.88;
+            line-height: 1.45;
+        }
+        .ai-stack-note {
+            font-size: 0.9rem;
+            opacity: 0.88;
+            font-style: italic;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        @media (max-width: 540px) {
+            .ai-stack-grid { grid-template-columns: 1fr; }
+        }
+
         .apply-box {
             background: var(--ink);
             color: white;
@@ -403,7 +462,7 @@
         <span class="hero-tag">Hledáme · plný úvazek</span>
         <h1>E-commerce Manager pro nové Vitar.cz</h1>
         <p class="hero-lead">
-            Postavíš první D2C e-shop v 30leté historii Vitaru. Od finalizace platformy přes implementaci až po denní provoz po launchi. AI-first prostředí, přímá spolupráce s CEO a Director of Digital Growth.
+            Postavíš první D2C e-shop v 35+leté historii Vitaru. Od finalizace platformy přes implementaci až po denní provoz po launchi. AI-first prostředí, přímá spolupráce s CEO a Director of Digital Growth.
         </p>
         <div class="hero-meta">
             <div class="hero-meta-item">📍 <span><strong>Zlín</strong> / hybrid</span></div>
@@ -423,7 +482,7 @@
 <section>
     <h2>O firmě</h2>
     <p>
-        Vitar je český výrobce doplňků stravy s <strong>30letou tradicí</strong>, vlastní laboratoří a 250 zaměstnanci. Vyrábíme <strong>13 milionů kusů ročně</strong> pod značkami Vitar, MaxiVita, MaxiVita Essentials a dalšími. Držíme 10–14 % českého trhu.
+        Vitar je český výrobce doplňků stravy s <strong>35+letou tradicí</strong>, vlastní laboratoří a 250 zaměstnanci. Vyrábíme <strong>13 milionů kusů ročně</strong> pod značkami Vitar, MaxiVita, MaxiVita Essentials a dalšími. Držíme 10–14 % českého trhu.
     </p>
     <p>
         V roce 2026 spouštíme nový e-shop <strong>Vitar.cz</strong> — první přímý prodejní kanál (D2C) v historii firmy. Hledáme člověka, který ho rozjede a povede.
@@ -513,9 +572,33 @@
         <li><strong>AI-first prostředí</strong> — Cursor, Claude Code, agentní workflows jsou standard, ne experiment. Firma investuje do AI adopce napříč celou skupinou.</li>
         <li>Přístup k <strong>placeným AI nástrojům</strong> (Claude Pro, Cursor Pro, další dle potřeby)</li>
         <li><strong>Hybridní model</strong> práce (Zlín + remote)</li>
-        <li>Stabilní zaměstnání v rostoucí firmě s 30letou tradicí v režimu startupu</li>
+        <li>Stabilní zaměstnání v rostoucí firmě s 35+letou tradicí v režimu startupu</li>
         <li><strong>Konkurenční mzda</strong> dle zkušeností — finanční rámec probereme na intro hovoru</li>
     </ul>
+
+    <div class="ai-stack-box">
+        <div class="ai-stack-label">AI-first stack v ceně</div>
+        <div class="ai-stack-headline">Pracuj s nejlepšími AI nástroji od dne 1.</div>
+        <div class="ai-stack-grid">
+            <div class="ai-stack-tool">
+                <div class="ai-stack-tool-name">Claude Pro</div>
+                <div class="ai-stack-tool-desc">Hlavní AI partner pro analýzy, content, customer care</div>
+            </div>
+            <div class="ai-stack-tool">
+                <div class="ai-stack-tool-name">Cursor Pro</div>
+                <div class="ai-stack-tool-desc">AI-first IDE pro automatizace a workflowy</div>
+            </div>
+            <div class="ai-stack-tool">
+                <div class="ai-stack-tool-name">Claude Code</div>
+                <div class="ai-stack-tool-desc">Agent na komplexní úkoly přes celé projekty</div>
+            </div>
+            <div class="ai-stack-tool">
+                <div class="ai-stack-tool-name">+ další</div>
+                <div class="ai-stack-tool-desc">Dle potřeby — schvalujeme rychle, neexperimentujeme s budgetem</div>
+            </div>
+        </div>
+        <div class="ai-stack-note">Žádné "podej si tiket na IT, schválíme za 3 týdny". Pracujeme jako startup.</div>
+    </div>
 </section>
 
 <section>
