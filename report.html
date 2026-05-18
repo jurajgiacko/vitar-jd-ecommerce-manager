@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Growth Report · Vitar Group · 19. 5. 2026</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --vitar-blue: #0057A0;
+            --vitar-blue-light: #1a7fd4;
+            --ink: #0f1729;
+            --ink-soft: #2c3e5d;
+            --gray: #64748b;
+            --bg: #ffffff;
+            --bg-soft: #f8fafc;
+            --border: #e2e8f0;
+            --green: #10b981;
+            --orange: #f59e0b;
+            --red: #ef4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--ink);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 32px 40px;
+        }
+
+        @media print {
+            body { font-size: 11px; }
+            .page { padding: 0; max-width: 100%; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; }
+            table { page-break-inside: avoid; }
+            h2 { page-break-after: avoid; }
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 3px solid var(--vitar-blue);
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+
+        .header-left h1 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--vitar-blue);
+            line-height: 1.2;
+        }
+
+        .header-left .subtitle {
+            font-size: 13px;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        .header-right strong {
+            color: var(--ink);
+        }
+
+        h2 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--vitar-blue);
+            margin: 24px 0 10px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h2:first-of-type { margin-top: 0; }
+
+        h3 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--ink-soft);
+            margin: 14px 0 6px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8px 0 16px;
+            font-size: 12px;
+        }
+
+        th, td {
+            padding: 6px 10px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--bg-soft);
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: var(--gray);
+        }
+
+        td:last-child { text-align: right; }
+        th:last-child { text-align: right; }
+
+        .highlight-row td {
+            font-weight: 700;
+            background: #f0fdf4;
+            border-top: 2px solid var(--green);
+        }
+
+        .warn-row td {
+            background: #fff7ed;
+        }
+
+        .total-row td {
+            font-weight: 700;
+            background: var(--bg-soft);
+            border-top: 2px solid var(--vitar-blue);
+            font-size: 13px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 8px 0 16px;
+        }
+
+        .card {
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 14px 16px;
+        }
+
+        .card-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: var(--gray);
+            margin-bottom: 6px;
+        }
+
+        .card ul {
+            list-style: none;
+            font-size: 12px;
+        }
+
+        .card ul li {
+            padding: 2px 0;
+        }
+
+        .card ul li::before {
+            content: "→ ";
+            color: var(--vitar-blue);
+            font-weight: 600;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .status-ok { background: #dcfce7; color: #166534; }
+        .status-wip { background: #fef3c7; color: #92400e; }
+        .status-wait { background: #fee2e2; color: #991b1b; }
+
+        .timeline {
+            display: flex;
+            gap: 0;
+            margin: 10px 0 16px;
+            font-size: 11px;
+        }
+
+        .timeline-item {
+            flex: 1;
+            text-align: center;
+            padding: 10px 4px;
+            border-top: 3px solid var(--border);
+            position: relative;
+        }
+
+        .timeline-item.active { border-top-color: var(--vitar-blue); }
+        .timeline-item.peak { border-top-color: var(--orange); }
+        .timeline-item.launch { border-top-color: var(--green); }
+
+        .timeline-item .t-month {
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .timeline-item .t-amount {
+            font-weight: 600;
+            color: var(--ink-soft);
+        }
+
+        .timeline-item .t-note {
+            font-size: 10px;
+            color: var(--gray);
+            margin-top: 2px;
+        }
+
+        .risk-table td:first-child {
+            font-weight: 600;
+        }
+
+        .decisions-list {
+            counter-reset: dec;
+            list-style: none;
+            margin: 8px 0;
+        }
+
+        .decisions-list li {
+            counter-increment: dec;
+            padding: 6px 0 6px 28px;
+            position: relative;
+            font-size: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .decisions-list li::before {
+            content: counter(dec);
+            position: absolute;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--vitar-blue);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .footer {
+            margin-top: 24px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+            font-size: 11px;
+            color: var(--gray);
+            text-align: center;
+        }
+
+        .print-btn {
+            display: inline-block;
+            margin: 16px auto;
+            padding: 10px 24px;
+            background: var(--vitar-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+        }
+        .print-btn:hover { background: var(--vitar-blue-light); text-decoration: none; }
+
+        .print-bar {
+            text-align: center;
+            padding: 12px;
+            background: var(--bg-soft);
+            border-bottom: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+
+<div class="print-bar no-print">
+    <button class="print-btn" onclick="window.print()">Uložit jako PDF (Ctrl+P)</button>
+</div>
+
+<div class="page">
+
+    <div class="header">
+        <div class="header-left">
+            <h1>Digital Growth</h1>
+            <div class="subtitle">Novy e-shop Vitar.cz &amp; strategie Q3 2026</div>
+        </div>
+        <div class="header-right">
+            <strong>Manazerska porada</strong><br>
+            19. 5. 2026<br>
+            Juraj Giacko<br>
+            Director of Digital Growth
+        </div>
+    </div>
+
+    <!-- 1. STATUS -->
+    <h2>1. Status projektu: E-shop Vitar.cz</h2>
+
+    <table>
+        <tr><th style="text-align:left">Polozka</th><th style="text-align:left">Stav</th><th style="text-align:right">Detail</th></tr>
+        <tr><td>Platforma</td><td><span class="status-badge status-ok">Schvaleno</span> Shopify Plus</td><td>CEO 30. 4.</td></tr>
+        <tr><td>IA + wireframes</td><td><span class="status-badge status-wip">Bezi</span> House of Rezac</td><td>Deadline 31. 5.</td></tr>
+        <tr><td>Implementace</td><td><span class="status-badge status-wait">Ceka</span> Mime Digital</td><td>Kontrakt po IA spec (cil 15. 6.)</td></tr>
+        <tr><td>Technicky dozor</td><td><span class="status-badge status-ok">Ready</span> NeHoupat.cz</td><td>Build QA + post-launch</td></tr>
+        <tr><td>Cilovy launch</td><td colspan="2"><strong>Q3 2026 (zari)</strong></td></tr>
+    </table>
+
+    <h3>Co je hotove (kveten 2026)</h3>
+    <div class="grid-2">
+        <div class="card">
+            <div class="card-title">Dokumenty</div>
+            <ul>
+                <li>Business Case schvalen CEO (Shopify Plus)</li>
+                <li>JD E-com Development Lead finalizovany</li>
+                <li>Financni rozvaha build phase (~2,04M)</li>
+                <li>WMS Decision Memo (3 cesty)</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-title">Tento tyden</div>
+            <ul>
+                <li>Teamio setup pro publikaci JD</li>
+                <li>LinkedIn drafty (organic hiring)</li>
+                <li>HoR pokracuje v IA fazi</li>
+                <li>WMS diskuse (19. 5., 12:00)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 2. HIRING -->
+    <h2>2. Hiring: E-commerce Development Lead</h2>
+
+    <table>
+        <tr><th style="text-align:left">Parametr</th><th style="text-align:right">Detail</th></tr>
+        <tr><td>Typ pozice</td><td><strong>Build role</strong> (stavba od nuly, ne udrzba)</td></tr>
+        <tr><td>Cilovy nastup</td><td><strong>15. 6. 2026</strong></td></tr>
+        <tr><td>Forma</td><td>HPP nebo faktura (otevrene)</td></tr>
+        <tr><td>Odmena</td><td>90–130k CZK/mes (dle seniority + formy)</td></tr>
+        <tr><td>Must-have</td><td>Stavba e-shopu od nuly · 3+ let · ERP · CRM/mailing</td></tr>
+        <tr><td>Publikace</td><td>Teamio (ATS) → StartupJobs / WTTJ</td></tr>
+        <tr><td>Backup plan</td><td>Do 30. 6. nenajdeme → interim externista</td></tr>
+    </table>
+
+    <!-- 3. FINANCNI ROZVAHA -->
+    <h2>3. Financni rozvaha — Build phase 2026</h2>
+
+    <p style="font-size: 11px; color: var(--gray); margin-bottom: 8px;">
+        Scope: stavba e-shopu + hire + dozor + buffer. Marketing, brand produkce, tech recurring = separatni CMO budget (po 1. 6.).
+    </p>
+
+    <table>
+        <tr><th style="text-align:left">Polozka</th><th style="text-align:right">CZK bez DPH (mid)</th></tr>
+        <tr><td>A. Build (Mime Digital + IA + tech napojeni brand + drobne)</td><td>~1 045k</td></tr>
+        <tr><td>B. Hire E-com Lead (6,5 mes. od 15. 6., 110k/mes mid)</td><td>~715k</td></tr>
+        <tr><td>C. Dozor — NeHoupat.cz (build + post-launch)</td><td>~95k</td></tr>
+        <tr><td>D. Buffer 10 %</td><td>~186k</td></tr>
+        <tr class="total-row"><td>TOTAL build phase 2026</td><td>~2 040k CZK</td></tr>
+        <tr><td>+ DPH 21 %</td><td>~2 470k CZK</td></tr>
+    </table>
+
+    <h3>Cashflow timeline (mid-case, mesicne)</h3>
+
+    <div class="timeline">
+        <div class="timeline-item active">
+            <div class="t-month">CER</div>
+            <div class="t-amount">415k</div>
+            <div class="t-note">30% zaloha MD<br>+ HoR + hire &frac12; mes.</div>
+        </div>
+        <div class="timeline-item peak">
+            <div class="t-month">CVC ⚠</div>
+            <div class="t-amount">435k</div>
+            <div class="t-note">PEAK<br>Milnik 1 + hire</div>
+        </div>
+        <div class="timeline-item active">
+            <div class="t-month">SRP</div>
+            <div class="t-amount">385k</div>
+            <div class="t-note">Milnik 2<br>+ tech brand</div>
+        </div>
+        <div class="timeline-item launch">
+            <div class="t-month">ZAR 🚀</div>
+            <div class="t-amount">280k</div>
+            <div class="t-note">Final platba<br>LAUNCH</div>
+        </div>
+        <div class="timeline-item">
+            <div class="t-month">RIJ</div>
+            <div class="t-amount">120k</div>
+            <div class="t-note">Stabilizace</div>
+        </div>
+        <div class="timeline-item">
+            <div class="t-month">LIS</div>
+            <div class="t-amount">120k</div>
+            <div class="t-note">Stabilizace</div>
+        </div>
+        <div class="timeline-item">
+            <div class="t-month">PRO</div>
+            <div class="t-amount">120k</div>
+            <div class="t-note">Stabilizace</div>
+        </div>
+    </div>
+
+    <!-- 4. ARCHITEKTURA -->
+    <h2>4. Architektura: WMS + DC</h2>
+
+    <p style="font-size: 12px; margin-bottom: 8px;">Nove DC = Vitar + Vitar Sport + Vedici pod jednou strechou. Rozhodnuti potrebne do konce cervna.</p>
+
+    <table>
+        <tr><th style="text-align:left">Path</th><th style="text-align:left">Popis</th><th>TTV</th><th>CAPEX</th><th style="text-align:right">Status</th></tr>
+        <tr><td>A</td><td>Pohoda WMS plugin (single entity)</td><td>4–6 mes</td><td>250–300k</td><td>Backup</td></tr>
+        <tr class="highlight-row"><td><strong>B ⭐</strong></td><td><strong>Pohoda WMS + Vitar e-com s.r.o.</strong></td><td><strong>6–9 mes</strong></td><td><strong>350–450k</strong></td><td><strong>Doporuceno</strong></td></tr>
+        <tr><td>C</td><td>Externi WMS (Skladon, MyDeal...)</td><td>9–14 mes</td><td>800k–1,5M</td><td>Long-term</td></tr>
+    </table>
+
+    <!-- 5. DECISIONS -->
+    <h2>5. Rozhodnuti potrebna od CEO + CFO</h2>
+
+    <ol class="decisions-list">
+        <li><strong>Budget approval</strong> — ~2,04M CZK bez DPH (build phase) <span style="float:right; color: var(--red); font-weight:600">Tomas + Kamil · do 31. 5.</span></li>
+        <li><strong>Cashflow plan</strong> — peak ~450k cervenec, vlastni CF vs kontokorent <span style="float:right; color: var(--red); font-weight:600">Kamil · do 31. 5.</span></li>
+        <li><strong>Forma uctovani</strong> — Vitar Group vs nova Vitar e-com s.r.o. <span style="float:right; color: var(--orange); font-weight:600">Tomas + Kamil · do 30. 6.</span></li>
+        <li><strong>Mime Digital kontrakt</strong> — nova ponuka po IA spec <span style="float:right; color: var(--orange); font-weight:600">Juraj · do 15. 6.</span></li>
+        <li><strong>Hiring approval</strong> — 90–130k/mes HPP nebo faktura <span style="float:right; color: var(--red); font-weight:600">Tomas · ASAP</span></li>
+    </ol>
+
+    <!-- 6. TIMELINE -->
+    <h2>6. Q3 2026 — Klicove milniky</h2>
+
+    <table>
+        <tr><th style="text-align:left">Kdy</th><th style="text-align:left">Co</th><th style="text-align:right">Owner</th></tr>
+        <tr><td><strong>31. 5.</strong></td><td>Budget approval + cashflow plan + IA spec hotovy</td><td>Tomas + Kamil</td></tr>
+        <tr><td><strong>1. 6.</strong></td><td>CMO nastupuje → marketing budget separatne</td><td>CMO + Juraj</td></tr>
+        <tr><td><strong>15. 6.</strong></td><td>E-com Lead nastup (cil) + MD kontrakt podpis</td><td>Juraj</td></tr>
+        <tr><td><strong>30. 6.</strong></td><td>WMS rozhodnuti (Path A / B / C)</td><td>Tomas + Kamil</td></tr>
+        <tr><td><strong>Cervenec</strong></td><td>Milnik 1 — alpha verze e-shopu</td><td>MD + E-com Lead</td></tr>
+        <tr><td><strong>Srpen</strong></td><td>Milnik 2 — beta + brand content integrace</td><td>MD + Karel</td></tr>
+        <tr class="highlight-row"><td><strong>Zari</strong></td><td><strong>LAUNCH Vitar.cz</strong></td><td><strong>Full team</strong></td></tr>
+    </table>
+
+    <!-- 7. RISKS -->
+    <h2>7. Rizika</h2>
+
+    <table class="risk-table">
+        <tr><th style="text-align:left">Riziko</th><th style="text-align:left">Dopad</th><th style="text-align:right">Mitigace</th></tr>
+        <tr class="warn-row"><td>⚠ Hire trva &gt;2 mesice</td><td>Delay launchu o 1–2 mes.</td><td>Backup: interim externista</td></tr>
+        <tr><td>WMS rozhodnuti se odklada</td><td>Neblokuje launch (tech-agnostic)</td><td>Build pokracuje, WMS paralelne</td></tr>
+        <tr><td>IA faze (HoR) se protahne</td><td>Delay MD kontraktu</td><td>Hard deadline 31. 5.</td></tr>
+        <tr><td>Brand assets meska (Karel)</td><td>Launch s placeholder</td><td>Brand polish v Q4</td></tr>
+    </table>
+
+    <div class="footer">
+        Juraj Giacko · Director of Digital Growth · Vitar Group · Manazerska porada 19. 5. 2026
+    </div>
+
+</div>
+
+</body>
+</html>
