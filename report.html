@@ -394,13 +394,14 @@
     <!-- 4. ARCHITEKTURA -->
     <h2>4. Architektura: WMS + DC</h2>
 
-    <p style="font-size: 12px; margin-bottom: 8px;">Nove DC = Vitar + Vitar Sport + Vedici pod jednou strechou. Rozhodnuti potrebne do konce cervna.</p>
+    <p style="font-size: 12px; margin-bottom: 8px;">Nove DC = Vitar + Vitar Sport + Vedici pod jednou strechou. Potrebujeme zladit: DC infrastruktura + WMS + prepojenie na e-shop + prepojenie na QAD (Vitar) a Pohoda (Vitar Sport). Rozhodnuti do konce cervna.</p>
 
     <table>
-        <tr><th style="text-align:left">Path</th><th style="text-align:left">Popis</th><th>Casovy odhad</th><th style="text-align:right">Status</th></tr>
-        <tr><td>A</td><td>Pohoda WMS plugin (single entity)</td><td>4–6 mes</td><td>Backup</td></tr>
-        <tr class="highlight-row"><td><strong>B ⭐</strong></td><td><strong>Pohoda WMS + Vitar e-com s.r.o.</strong></td><td><strong>6–9 mes</strong></td><td><strong>Doporuceno</strong></td></tr>
-        <tr><td>C</td><td>Externi WMS (Skladon, MyDeal...)</td><td>9–14 mes</td><td>Long-term</td></tr>
+        <tr><th style="text-align:left">Tema</th><th style="text-align:left">Stav</th><th style="text-align:right">Poznamka</th></tr>
+        <tr><td>DC infrastruktura (fyzicky sklad)</td><td><span class="status-badge status-wip">Planovani</span></td><td>Vitar + VS + Vedici pod jednou strechou</td></tr>
+        <tr><td>WMS (warehouse management)</td><td><span class="status-badge status-wait">Rozhodnuti</span></td><td>Jaky system, jak obsluhovat multi-entity DC</td></tr>
+        <tr><td>ERP: QAD (Vitar) + Pohoda (Vitar Sport)</td><td><span class="status-badge status-wip">Analyza</span></td><td>Zladeni dvou systemu, napojeni na e-shop</td></tr>
+        <tr><td>E-shop ↔ WMS ↔ ERP prepojenie</td><td><span class="status-badge status-wait">Zavisi na WMS</span></td><td>Kriticka integrace pro fulfillment</td></tr>
     </table>
 
     <!-- 5. TIMELINE -->
